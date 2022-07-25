@@ -1,4 +1,6 @@
 README*.
+*.*.md
+*.md
 #Junk
 .DS_Store
 .vscode/
