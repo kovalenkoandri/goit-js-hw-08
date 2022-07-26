@@ -8,13 +8,13 @@ const savedSettings = localStorage.getItem('feedback-form-state');
 const parsedSettings = JSON.parse(savedSettings);
 input.value = parsedSettings.email;
 textArea.value = parsedSettings.message;
+const obj = {};
 form.addEventListener(
   'input',
   throttle(event => {
-    const obj = {
-      email: event.currentTarget.elements.email.value,
-      message: event.currentTarget.elements.message.value,
-    };
+    console.log(event);
+if (event.currentTarget !== null) obj.email = event.currentTarget.elements.email.value;
+if (event.currentTarget !== null) obj.message = event.currentTarget.elements.message.value;
     localStorage.setItem('feedback-form-state', JSON.stringify(obj));
   }, 500)
 );
