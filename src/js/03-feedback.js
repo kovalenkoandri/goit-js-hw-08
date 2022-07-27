@@ -13,8 +13,10 @@ form.addEventListener(
   'input',
   throttle(event => {
     console.log(event);
-if (event.currentTarget !== null) obj.email = event.currentTarget.elements.email.value;
-if (event.currentTarget !== null) obj.message = event.currentTarget.elements.message.value;
+    if (event.currentTarget) {
+      obj.email = event.currentTarget.elements.email.value;
+      obj.message = event.currentTarget.elements.message.value;
+    }
     localStorage.setItem('feedback-form-state', JSON.stringify(obj));
   }, 500)
 );
